@@ -34,6 +34,7 @@ interface ContactFormProps {
 
 export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
   const [startDate, setStartDate] = useState<Date>();
+  const [startTime, setStartTime] = useState("09:00");
   const [endDate, setEndDate] = useState<Date>();
   const [vehicle, setVehicle] = useState(selectedVehicle || "");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -58,6 +59,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
     // Reset form
     e.currentTarget.reset();
     setStartDate(undefined);
+    setStartTime("09:00");
     setEndDate(undefined);
     setVehicle("");
     setPrivacyAccepted(false);
@@ -111,30 +113,44 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label>Mietbeginn *</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal bg-background border-border",
-                        !startDate && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {startDate ? format(startDate, "PPP", { locale: de }) : "Datum wählen"}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={startDate}
-                      onSelect={setStartDate}
-                      initialFocus
-                      disabled={(date) => date < new Date()}
-                      className="pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
+                <div className="flex gap-2">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "flex-1 justify-start text-left font-normal bg-background border-border",
+                          !startDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {startDate ? format(startDate, "PPP", { locale: de }) : "Datum wählen"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={startDate}
+                        onSelect={setStartDate}
+                        initialFocus
+                        disabled={(date) => date < new Date()}
+                        className="pointer-events-auto"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <Select value={startTime} onValueChange={setStartTime}>
+                    <SelectTrigger className="w-24 bg-background border-border">
+                      <SelectValue placeholder="Uhrzeit" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"].map((time) => (
+                        <SelectItem key={time} value={time}>
+                          {time}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
 
               <div className="space-y-2">
