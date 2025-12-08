@@ -57,13 +57,13 @@ export const Footer = () => {
           >
             <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Rechtliches</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a href="https://www.jvg-premium.de/impressum/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
                 Impressum
               </a>
-              <a href="#" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a href="https://www.jvg-premium.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
                 Datenschutz
               </a>
-              <a href="#" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a href="https://www.jvg-premium.de/agb/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
                 AGB
               </a>
             </div>
