@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,11 +8,12 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const vehicles = [
   { name: "FIAT 500e", pricePerDay: 39 },
@@ -38,6 +39,9 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
   const [endDate, setEndDate] = useState<Date>();
   const [vehicle, setVehicle] = useState(selectedVehicle || "");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const formTimestamp = useRef(Date.now());
 
   // Update vehicle when selectedVehicle prop changes
   useEffect(() => {
@@ -46,7 +50,12 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
     }
   }, [selectedVehicle]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Reset timestamp when form mounts
+  useEffect(() => {
+    formTimestamp.current = Date.now();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!privacyAccepted) {
@@ -54,15 +63,56 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
       return;
     }
 
-    toast.success("Anfrage erfolgreich gesendet! Wir melden uns bald bei Ihnen.");
+    if (!startDate || !endDate || !vehicle) {
+      toast.error("Bitte füllen Sie alle Pflichtfelder aus");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
     
-    // Reset form
-    e.currentTarget.reset();
-    setStartDate(undefined);
-    setStartTime("09:00");
-    setEndDate(undefined);
-    setVehicle("");
-    setPrivacyAccepted(false);
+    try {
+      const { data, error } = await supabase.functions.invoke("submit-rental-request", {
+        body: {
+          vehicle,
+          startDate: format(startDate, "yyyy-MM-dd"),
+          startTime,
+          endDate: format(endDate, "yyyy-MM-dd"),
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          message: formData.get("message") || "",
+          privacyAccepted,
+          honeypot,
+          timestamp: formTimestamp.current,
+        },
+      });
+
+      if (error) {
+        console.error("Submission error:", error);
+        toast.error("Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.");
+        return;
+      }
+
+      toast.success("Anfrage erfolgreich gesendet! Wir melden uns innerhalb von 30 Minuten.");
+      
+      // Reset form
+      e.currentTarget.reset();
+      setStartDate(undefined);
+      setStartTime("09:00");
+      setEndDate(undefined);
+      setVehicle("");
+      setPrivacyAccepted(false);
+      setHoneypot("");
+      formTimestamp.current = Date.now();
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,6 +142,20 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
           className="max-w-2xl mx-auto"
         >
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card-premium space-y-6">
+            {/* Honeypot field - hidden from users, visible to bots */}
+            <div className="absolute opacity-0 -z-10 pointer-events-none" aria-hidden="true">
+              <Label htmlFor="website">Website</Label>
+              <Input 
+                id="website"
+                name="website"
+                type="text"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             {/* Vehicle Selection */}
             <div className="space-y-2">
               <Label htmlFor="vehicle">Gewünschtes Fahrzeug *</Label>
@@ -187,7 +251,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
               <div className="space-y-2">
                 <Label htmlFor="firstName">Vorname *</Label>
                 <Input 
-                  id="firstName" 
+                  id="firstName"
+                  name="firstName"
                   required 
                   className="bg-background border-border"
                 />
@@ -195,7 +260,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
               <div className="space-y-2">
                 <Label htmlFor="lastName">Nachname *</Label>
                 <Input 
-                  id="lastName" 
+                  id="lastName"
+                  name="lastName"
                   required 
                   className="bg-background border-border"
                 />
@@ -205,7 +271,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
             <div className="space-y-2">
               <Label htmlFor="email">E-Mail-Adresse *</Label>
               <Input 
-                id="email" 
+                id="email"
+                name="email"
                 type="email" 
                 required 
                 className="bg-background border-border"
@@ -215,7 +282,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
             <div className="space-y-2">
               <Label htmlFor="phone">Telefonnummer *</Label>
               <Input 
-                id="phone" 
+                id="phone"
+                name="phone"
                 type="tel" 
                 required 
                 className="bg-background border-border"
@@ -225,7 +293,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
             <div className="space-y-2">
               <Label htmlFor="message">Nachricht (optional)</Label>
               <Textarea 
-                id="message" 
+                id="message"
+                name="message"
                 rows={4}
                 className="bg-background border-border resize-none"
               />
@@ -258,10 +327,18 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
 
             {/* Submit Button */}
             <Button 
-              type="submit" 
+              type="submit"
+              disabled={isSubmitting}
               className="w-full bg-gradient-gold text-primary-foreground hover:opacity-90 transition-opacity font-semibold text-lg py-6 shadow-gold"
             >
-              Anfrage jetzt senden
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Wird gesendet...
+                </>
+              ) : (
+                "Anfrage jetzt senden"
+              )}
             </Button>
           </form>
         </motion.div>
