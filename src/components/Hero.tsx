@@ -28,9 +28,9 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 text-foreground">
-            Premium Mietwagen in{" "}
+            Günstige Mietwagen im{" "}
             <span className="text-transparent bg-clip-text bg-gradient-gold">
-              Bad Vilbel
+              Raum Frankfurt
             </span>
           </h1>
         </motion.div>
@@ -41,7 +41,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
         >
-          Flexibel, schnell & ohne Kreditkarte. Finden Sie jetzt Ihr Wunschauto.
+          Ohne Kreditkarte · Rückmeldung innerhalb von 1h
         </motion.p>
 
         <motion.div
