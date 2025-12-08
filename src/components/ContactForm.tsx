@@ -15,12 +15,17 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const vehicles = [
-  "Porsche Taycan 4S",
+  "FIAT 500e",
+  "Citroen C3",
+  "FIAT Panda",
+  "Seat Ibiza Style Edition",
+  "Ford Focus",
+  "Seat Arona",
+  "BMW 2er Coupe",
+  "Skoda Karoq",
   "Alfa Romeo Stelvio",
-  "BMW 3er",
-  "VW Golf",
-  "Mercedes E-Klasse",
-  "Audi Q5",
+  "Porsche Taycan 4S",
+  "Renault Master",
 ];
 
 interface ContactFormProps {
