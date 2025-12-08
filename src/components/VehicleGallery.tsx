@@ -4,6 +4,7 @@ import { VehicleCard } from "./VehicleCard";
 import { Button } from "@/components/ui/button";
 
 // Import vehicle images
+import fiat500e from "@/assets/vehicles/fiat-500e.jpg";
 import citroenC3 from "@/assets/vehicles/citroen-c3.jpg";
 import fiatPanda from "@/assets/vehicles/fiat-panda.jpg";
 import seatIbiza from "@/assets/vehicles/seat-ibiza.jpg";
@@ -30,7 +31,7 @@ const vehicles: Vehicle[] = [
   {
     id: "1",
     name: "FIAT 500e",
-    image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&q=80",
+    image: fiat500e,
     category: "Kleinwagen",
     transmission: "Automatik",
     seats: 4,
