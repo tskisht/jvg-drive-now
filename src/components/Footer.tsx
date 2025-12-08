@@ -17,10 +17,10 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center">
                 <Car className="w-6 h-6 text-primary-foreground" />
               </div>
-              <span className="font-heading text-xl font-bold text-foreground">JVG Premium</span>
+              <span className="font-heading text-xl font-bold text-foreground">JVG GmbH</span>
             </div>
             <p className="text-muted-foreground">
-              Ihre erste Wahl für Premium-Mietwagen in Bad Vilbel
+              Günstige Mietwagen im Raum Frankfurt
             </p>
           </motion.div>
 
@@ -33,18 +33,14 @@ export const Footer = () => {
           >
             <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Kontakt</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>Zeppelinstraße 10</p>
-              <p>61118 Bad Vilbel</p>
+              <p>Johann-Gutenberg-Straße 9</p>
+              <p>61273 Wehrheim</p>
               <p>
-                <a href="tel:+4961015063010" className="hover:text-gold transition-colors">
-                  06101 506 301 0
+                <a href="tel:+4960819569000" className="hover:text-gold transition-colors">
+                  +49 6081 956 9000
                 </a>
               </p>
-              <p>
-                <a href="mailto:info@jvg-premium.de" className="hover:text-gold transition-colors">
-                  info@jvg-premium.de
-                </a>
-              </p>
+              <p className="text-sm">Mo - Fr: 8:00 - 17:00 Uhr</p>
             </div>
           </motion.div>
 
@@ -78,7 +74,7 @@ export const Footer = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="pt-8 border-t border-border text-center text-muted-foreground"
         >
-          <p>© {new Date().getFullYear()} JVG Premium. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} JVG GmbH. Alle Rechte vorbehalten.</p>
         </motion.div>
       </div>
     </footer>

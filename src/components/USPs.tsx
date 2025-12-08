@@ -37,7 +37,7 @@ export const USPs = () => {
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Ihre Vorteile bei{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-gold">JVG Premium</span>
+            <span className="text-transparent bg-clip-text bg-gradient-gold">JVG GmbH</span>
           </h2>
         </motion.div>
 

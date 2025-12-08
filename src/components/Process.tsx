@@ -38,7 +38,7 @@ export const Process = () => {
             <span className="text-transparent bg-clip-text bg-gradient-gold">Ihrem Mietwagen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            So einfach ist der Prozess bei JVG Premium
+            So einfach ist der Prozess bei JVG GmbH
           </p>
         </motion.div>
 

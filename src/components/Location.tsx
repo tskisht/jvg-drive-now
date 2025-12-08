@@ -17,7 +17,7 @@ export const Location = () => {
             <span className="text-transparent bg-clip-text bg-gradient-gold">uns</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Holen Sie Ihr Fahrzeug direkt in Bad Vilbel ab
+            Holen Sie Ihr Fahrzeug direkt in Wehrheim ab
           </p>
         </motion.div>
 
@@ -31,14 +31,14 @@ export const Location = () => {
             className="rounded-2xl overflow-hidden shadow-card-premium h-96"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2553.8!2d8.7367!3d50.1789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0f4e3e0d0001%3A0x0!2sZeppelinstra%C3%9Fe%2010%2C%2061118%20Bad%20Vilbel!5e0!3m2!1sde!2sde!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2553.8!2d8.5833!3d50.3333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0f4e3e0d0001%3A0x0!2sJohann-Gutenberg-Stra%C3%9Fe%209%2C%2061273%20Wehrheim!5e0!3m2!1sde!2sde!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="JVG Premium Standort"
+              title="JVG GmbH Standort"
             />
           </motion.div>
 
@@ -58,9 +58,9 @@ export const Location = () => {
                 <div>
                   <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">Adresse</h3>
                   <p className="text-muted-foreground">
-                    JVG Premium<br />
-                    Zeppelinstraße 10<br />
-                    61118 Bad Vilbel
+                    JVG GmbH<br />
+                    Johann-Gutenberg-Straße 9<br />
+                    61273 Wehrheim
                   </p>
                 </div>
               </div>
@@ -72,10 +72,10 @@ export const Location = () => {
                 <div>
                   <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">Telefon</h3>
                   <a 
-                    href="tel:+4961015063010" 
+                    href="tel:+4960819569000" 
                     className="text-gold hover:text-gold-light transition-colors text-lg font-semibold"
                   >
-                    06101 506 301 0
+                    +49 6081 956 9000
                   </a>
                 </div>
               </div>
@@ -87,9 +87,7 @@ export const Location = () => {
                 <div>
                   <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">Öffnungszeiten</h3>
                   <div className="text-muted-foreground space-y-1">
-                    <p>Montag - Freitag: 8:00 - 18:00 Uhr</p>
-                    <p>Samstag: 9:00 - 14:00 Uhr</p>
-                    <p>Sonntag: Geschlossen</p>
+                    <p>Montag - Freitag: 8:00 - 17:00 Uhr</p>
                   </div>
                 </div>
               </div>
