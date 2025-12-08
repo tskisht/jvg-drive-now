@@ -3,6 +3,18 @@ import { motion } from "framer-motion";
 import { VehicleCard } from "./VehicleCard";
 import { Button } from "@/components/ui/button";
 
+// Import vehicle images
+import citroenC3 from "@/assets/vehicles/citroen-c3.jpg";
+import fiatPanda from "@/assets/vehicles/fiat-panda.jpg";
+import seatIbiza from "@/assets/vehicles/seat-ibiza.jpg";
+import fordFocus from "@/assets/vehicles/ford-focus.jpg";
+import seatArona from "@/assets/vehicles/seat-arona.png";
+import bmw2er from "@/assets/vehicles/bmw-2er.jpg";
+import skodaKaroq from "@/assets/vehicles/skoda-karoq.jpg";
+import alfaStelvio from "@/assets/vehicles/alfa-stelvio.jpg";
+import porscheTaycan from "@/assets/vehicles/porsche-taycan.jpg";
+import renaultMaster from "@/assets/vehicles/renault-master.jpg";
+
 interface Vehicle {
   id: string;
   name: string;
@@ -28,7 +40,7 @@ const vehicles: Vehicle[] = [
   {
     id: "2",
     name: "Citroen C3",
-    image: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
+    image: citroenC3,
     category: "Kleinwagen",
     transmission: "Schalter",
     seats: 5,
@@ -38,7 +50,7 @@ const vehicles: Vehicle[] = [
   {
     id: "3",
     name: "FIAT Panda",
-    image: "https://images.unsplash.com/photo-1606611013016-969c19ba4f4e?w=800&q=80",
+    image: fiatPanda,
     category: "Kleinwagen",
     transmission: "Schalter",
     seats: 5,
@@ -48,7 +60,7 @@ const vehicles: Vehicle[] = [
   {
     id: "4",
     name: "Seat Ibiza Style Edition",
-    image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&q=80",
+    image: seatIbiza,
     category: "Kleinwagen",
     transmission: "Schalter",
     seats: 5,
@@ -58,7 +70,7 @@ const vehicles: Vehicle[] = [
   {
     id: "5",
     name: "Ford Focus",
-    image: "https://images.unsplash.com/photo-1551830820-330a71b99659?w=800&q=80",
+    image: fordFocus,
     category: "Kompaktklasse",
     transmission: "Automatik",
     seats: 5,
@@ -68,7 +80,7 @@ const vehicles: Vehicle[] = [
   {
     id: "6",
     name: "Seat Arona",
-    image: "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=800&q=80",
+    image: seatArona,
     category: "Kompaktklasse SUV",
     transmission: "Automatik",
     seats: 5,
@@ -78,7 +90,7 @@ const vehicles: Vehicle[] = [
   {
     id: "7",
     name: "BMW 2er Coupe",
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
+    image: bmw2er,
     category: "Mittelklasse",
     transmission: "Automatik",
     seats: 4,
@@ -88,7 +100,7 @@ const vehicles: Vehicle[] = [
   {
     id: "8",
     name: "Skoda Karoq",
-    image: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
+    image: skodaKaroq,
     category: "Mittelklasse",
     transmission: "Automatik",
     seats: 5,
@@ -98,7 +110,7 @@ const vehicles: Vehicle[] = [
   {
     id: "9",
     name: "Alfa Romeo Stelvio",
-    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80",
+    image: alfaStelvio,
     category: "Premium",
     transmission: "Automatik",
     seats: 5,
@@ -108,7 +120,7 @@ const vehicles: Vehicle[] = [
   {
     id: "10",
     name: "Porsche Taycan 4S",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800&q=80",
+    image: porscheTaycan,
     category: "Luxus",
     transmission: "Automatik",
     seats: 4,
@@ -118,7 +130,7 @@ const vehicles: Vehicle[] = [
   {
     id: "11",
     name: "Renault Master",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: renaultMaster,
     category: "Transporter",
     transmission: "Schalter",
     seats: 3,
