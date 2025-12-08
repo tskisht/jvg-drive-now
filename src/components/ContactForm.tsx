@@ -78,7 +78,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
             <span className="text-transparent bg-clip-text bg-gradient-gold">Anfrage</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen
+            Füllen Sie das Formular aus – Rückmeldung innerhalb von 30min
           </p>
         </motion.div>
 

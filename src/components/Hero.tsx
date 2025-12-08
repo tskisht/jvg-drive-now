@@ -12,8 +12,8 @@ export const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background z-10" />
-        <img 
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-10" />
+        <img
           src={heroCar} 
           alt="Premium Fahrzeuge" 
           className="w-full h-full object-cover"
@@ -35,14 +35,22 @@ export const Hero = () => {
           </h1>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
+          className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12 max-w-3xl mx-auto"
         >
-          Ohne Kreditkarte · Rückmeldung innerhalb von 1h
-        </motion.p>
+          <span className="text-lg md:text-xl font-medium text-foreground bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/30">
+            Ohne Kreditkarte
+          </span>
+          <span className="text-lg md:text-xl font-medium text-foreground bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/30">
+            Schnell & unkompliziert
+          </span>
+          <span className="text-lg md:text-xl font-medium text-foreground bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/30">
+            Top Service
+          </span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
