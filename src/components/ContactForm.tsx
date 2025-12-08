@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,17 +15,17 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const vehicles = [
-  "FIAT 500e",
-  "Citroen C3",
-  "FIAT Panda",
-  "Seat Ibiza Style Edition",
-  "Ford Focus",
-  "Seat Arona",
-  "BMW 2er Coupe",
-  "Skoda Karoq",
-  "Alfa Romeo Stelvio",
-  "Porsche Taycan 4S",
-  "Renault Master",
+  { name: "FIAT 500e", pricePerDay: 39 },
+  { name: "Citroen C3", pricePerDay: 49 },
+  { name: "FIAT Panda", pricePerDay: 39 },
+  { name: "Seat Ibiza Style Edition", pricePerDay: 49 },
+  { name: "Ford Focus", pricePerDay: 59 },
+  { name: "Seat Arona", pricePerDay: 59 },
+  { name: "BMW 2er Coupe", pricePerDay: 89 },
+  { name: "Skoda Karoq", pricePerDay: 65 },
+  { name: "Alfa Romeo Stelvio", pricePerDay: 119 },
+  { name: "Porsche Taycan 4S", pricePerDay: 159 },
+  { name: "Renault Master", pricePerDay: 99 },
 ];
 
 interface ContactFormProps {
@@ -37,6 +37,13 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
   const [endDate, setEndDate] = useState<Date>();
   const [vehicle, setVehicle] = useState(selectedVehicle || "");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+
+  // Update vehicle when selectedVehicle prop changes
+  useEffect(() => {
+    if (selectedVehicle) {
+      setVehicle(selectedVehicle);
+    }
+  }, [selectedVehicle]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,8 +99,8 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                 </SelectTrigger>
                 <SelectContent>
                   {vehicles.map((v) => (
-                    <SelectItem key={v} value={v}>
-                      {v}
+                    <SelectItem key={v.name} value={v.name}>
+                      {v.name} – {v.pricePerDay}€/Tag
                     </SelectItem>
                   ))}
                 </SelectContent>
