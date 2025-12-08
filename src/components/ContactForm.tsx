@@ -227,7 +227,16 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                 htmlFor="privacy" 
                 className="text-sm text-muted-foreground cursor-pointer leading-relaxed"
               >
-                Ich akzeptiere die Datenschutzerklärung und stimme zu, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden.
+                Ich akzeptiere die{" "}
+                <a 
+                  href="https://www.jvg-premium.de/datenschutzerklaerung/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gold hover:underline"
+                >
+                  Datenschutzerklärung
+                </a>{" "}
+                und stimme zu, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden.
               </Label>
             </div>
 
