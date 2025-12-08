@@ -42,6 +42,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const formTimestamp = useRef(Date.now());
+  const formRef = useRef<HTMLFormElement>(null);
 
   // Update vehicle when selectedVehicle prop changes
   useEffect(() => {
@@ -96,10 +97,20 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
         return;
       }
 
-      toast.success("Anfrage erfolgreich gesendet! Wir melden uns innerhalb von 30 Minuten.");
+      toast.success(
+        "🎉 Vielen Dank für Ihre Anfrage! Wir melden uns innerhalb von 30 Minuten bei Ihnen.",
+        {
+          duration: 8000,
+          style: {
+            background: 'hsl(var(--card))',
+            border: '2px solid hsl(var(--gold))',
+            color: 'hsl(var(--foreground))',
+          },
+        }
+      );
       
-      // Reset form
-      e.currentTarget.reset();
+      // Reset form using ref (e.currentTarget is null after async)
+      formRef.current?.reset();
       setStartDate(undefined);
       setStartTime("09:00");
       setEndDate(undefined);
@@ -141,7 +152,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-2xl mx-auto"
         >
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card-premium space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card-premium space-y-6">
             {/* Honeypot field - hidden from users, visible to bots */}
             <div className="absolute opacity-0 -z-10 pointer-events-none" aria-hidden="true">
               <Label htmlFor="website">Website</Label>
