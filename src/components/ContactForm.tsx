@@ -265,6 +265,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                   id="firstName"
                   name="firstName"
                   required 
+                  maxLength={100}
                   className="bg-background border-border"
                 />
               </div>
@@ -274,6 +275,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                   id="lastName"
                   name="lastName"
                   required 
+                  maxLength={100}
                   className="bg-background border-border"
                 />
               </div>
@@ -286,6 +288,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                 name="email"
                 type="email" 
                 required 
+                maxLength={255}
                 className="bg-background border-border"
               />
             </div>
@@ -297,6 +300,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                 name="phone"
                 type="tel" 
                 required 
+                maxLength={20}
                 className="bg-background border-border"
               />
             </div>
@@ -307,6 +311,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                 id="message"
                 name="message"
                 rows={4}
+                maxLength={5000}
                 className="bg-background border-border resize-none"
               />
             </div>

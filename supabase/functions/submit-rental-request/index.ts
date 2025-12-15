@@ -1,8 +1,20 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+const ALLOWED_ORIGINS = [
+  "https://www.jvg-premium.de",
+  "https://jvg-premium.de",
+  "https://keejwixhwperfjdwkkpt.lovableproject.com",
+  "http://localhost:8080",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
+const getCorsHeaders = (origin: string | null) => {
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin || "") ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin || ALLOWED_ORIGINS[0],
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  };
 };
 
 interface RentalRequestData {
@@ -22,6 +34,9 @@ interface RentalRequestData {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -55,6 +70,43 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ success: true, message: "Request received" }),
         { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Input length validation to prevent resource exhaustion
+    if (data.firstName?.length > 100 || data.lastName?.length > 100) {
+      console.error("Validation error: Name too long");
+      return new Response(
+        JSON.stringify({ error: "Name too long" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+    if (data.email?.length > 255) {
+      console.error("Validation error: Email too long");
+      return new Response(
+        JSON.stringify({ error: "Email too long" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+    if (data.phone?.length > 20) {
+      console.error("Validation error: Phone too long");
+      return new Response(
+        JSON.stringify({ error: "Phone too long" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+    if (data.message && data.message.length > 5000) {
+      console.error("Validation error: Message too long");
+      return new Response(
+        JSON.stringify({ error: "Message too long" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+    if (data.vehicle?.length > 100) {
+      console.error("Validation error: Invalid vehicle selection");
+      return new Response(
+        JSON.stringify({ error: "Invalid vehicle selection" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
