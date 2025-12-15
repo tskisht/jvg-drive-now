@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { VehicleGallery } from "@/components/VehicleGallery";
+import { PricingInfo } from "@/components/PricingInfo";
 import { USPs } from "@/components/USPs";
 import { Process } from "@/components/Process";
 import { ContactForm } from "@/components/ContactForm";
@@ -14,6 +15,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Hero />
       <VehicleGallery onVehicleSelect={setSelectedVehicle} />
+      <PricingInfo />
       <USPs />
       <Process />
       <ContactForm selectedVehicle={selectedVehicle} />
