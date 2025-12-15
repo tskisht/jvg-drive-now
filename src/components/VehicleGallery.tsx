@@ -148,7 +148,7 @@ const vehicles: Vehicle[] = [
     fuel: "Elektro",
     pricePerDay: 159,
     weekendPrice: 390,
-    freeKm: "200km pro Tag • Wochenende: 450km frei",
+    freeKm: "200km pro Tag",
     extraKmPrice: "1,49€/km",
   },
   {
@@ -166,7 +166,16 @@ const vehicles: Vehicle[] = [
   },
 ];
 
-const categories = ["Alle", "Kleinwagen", "Kompaktklasse", "Kompaktklasse SUV", "Mittelklasse", "Premium", "Luxus", "Transporter"];
+const categories = [
+  "Alle",
+  "Kleinwagen",
+  "Kompaktklasse",
+  "Kompaktklasse SUV",
+  "Mittelklasse",
+  "Premium",
+  "Luxus",
+  "Transporter",
+];
 
 interface VehicleGalleryProps {
   onVehicleSelect: (vehicleName: string) => void;
@@ -175,13 +184,12 @@ interface VehicleGalleryProps {
 export const VehicleGallery = ({ onVehicleSelect }: VehicleGalleryProps) => {
   const [selectedCategory, setSelectedCategory] = useState("Alle");
 
-  const filteredVehicles = selectedCategory === "Alle" 
-    ? vehicles 
-    : vehicles.filter(v => v.category === selectedCategory);
+  const filteredVehicles =
+    selectedCategory === "Alle" ? vehicles : vehicles.filter((v) => v.category === selectedCategory);
 
   const handleInquire = (vehicleName: string) => {
     onVehicleSelect(vehicleName);
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -242,10 +250,7 @@ export const VehicleGallery = ({ onVehicleSelect }: VehicleGalleryProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <VehicleCard
-                {...vehicle}
-                onInquire={() => handleInquire(vehicle.name)}
-              />
+              <VehicleCard {...vehicle} onInquire={() => handleInquire(vehicle.name)} />
             </motion.div>
           ))}
         </motion.div>
