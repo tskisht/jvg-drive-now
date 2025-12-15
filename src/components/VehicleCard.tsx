@@ -45,6 +45,11 @@ export const VehicleCard = ({
           <div className="absolute top-4 right-4 bg-gradient-gold px-3 py-1 rounded-full">
             <span className="text-sm font-semibold text-primary-foreground">{category}</span>
           </div>
+          <div className="absolute bottom-2 left-2 right-2">
+            <span className="text-xs text-white/80 bg-black/50 px-2 py-1 rounded">
+              Tatsächliche Fahrzeugfarbe kann abweichen
+            </span>
+          </div>
         </div>
         
         <div className="p-6">

@@ -14,7 +14,7 @@ import bmw2er from "@/assets/vehicles/bmw-2er.jpg";
 import skodaKaroq from "@/assets/vehicles/skoda-karoq.jpg";
 import alfaStelvio from "@/assets/vehicles/alfa-stelvio.jpg";
 import porscheTaycan from "@/assets/vehicles/porsche-taycan.jpg";
-import renaultMaster from "@/assets/vehicles/renault-master.jpg";
+import renaultMaster from "@/assets/vehicles/renault-master.png";
 
 interface Vehicle {
   id: string;
