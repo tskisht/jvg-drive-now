@@ -8,7 +8,7 @@ import fiat500e from "@/assets/vehicles/fiat-500e.jpg";
 import citroenC3 from "@/assets/vehicles/citroen-c3.jpg";
 import fiatPanda from "@/assets/vehicles/fiat-panda.jpg";
 import seatIbiza from "@/assets/vehicles/seat-ibiza.jpg";
-import fordFocus from "@/assets/vehicles/ford-focus.jpg";
+import fordFocus from "@/assets/vehicles/ford-focus.png";
 import seatArona from "@/assets/vehicles/seat-arona.png";
 import bmw2er from "@/assets/vehicles/bmw-2er.jpg";
 import skodaKaroq from "@/assets/vehicles/skoda-karoq.jpg";
