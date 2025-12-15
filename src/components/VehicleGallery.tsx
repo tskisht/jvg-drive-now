@@ -161,7 +161,7 @@ const vehicles: Vehicle[] = [
     fuel: "Diesel",
     pricePerDay: 99,
     weekendPrice: 250,
-    freeKm: "200km pro Tag • Wochenende: 500km frei",
+    freeKm: "200km pro Tag",
     extraKmPrice: "1,00€/km",
   },
 ];
