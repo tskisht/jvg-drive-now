@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Car, Users, Zap, Settings } from "lucide-react";
+import { Car, Users, Zap, Settings, Calendar, MapPin } from "lucide-react";
 
 interface VehicleCardProps {
   name: string;
@@ -11,6 +11,9 @@ interface VehicleCardProps {
   seats: number;
   fuel: string;
   pricePerDay: number;
+  weekendPrice?: number;
+  freeKm?: string;
+  extraKmPrice?: string;
   onInquire: () => void;
 }
 
@@ -22,6 +25,9 @@ export const VehicleCard = ({
   seats,
   fuel,
   pricePerDay,
+  weekendPrice,
+  freeKm,
+  extraKmPrice,
   onInquire,
 }: VehicleCardProps) => {
   return (
@@ -44,7 +50,7 @@ export const VehicleCard = ({
         <div className="p-6">
           <h3 className="font-heading text-2xl font-semibold mb-4 text-foreground">{name}</h3>
           
-          <div className="grid grid-cols-2 gap-3 mb-6">
+          <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Settings className="w-4 h-4" />
               <span className="text-sm">{transmission}</span>
@@ -59,9 +65,31 @@ export const VehicleCard = ({
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Car className="w-4 h-4" />
-              <span className="text-sm">Premium</span>
+              <span className="text-sm">200km/Tag</span>
             </div>
           </div>
+
+          {/* Weekend & Kilometer Conditions */}
+          {(weekendPrice || freeKm) && (
+            <div className="bg-muted/50 rounded-lg p-3 mb-4 space-y-2">
+              {weekendPrice && (
+                <div className="flex items-center gap-2 text-sm">
+                  <Calendar className="w-4 h-4 text-gold" />
+                  <span className="text-muted-foreground">Wochenende (Fr-So):</span>
+                  <span className="font-semibold text-foreground">{weekendPrice}€</span>
+                </div>
+              )}
+              {freeKm && (
+                <div className="flex items-center gap-2 text-sm">
+                  <MapPin className="w-4 h-4 text-gold" />
+                  <span className="text-muted-foreground">{freeKm}</span>
+                  {extraKmPrice && (
+                    <span className="text-muted-foreground">• {extraKmPrice} Mehrkilometer</span>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
           
           <div className="flex items-center justify-between">
             <div>
