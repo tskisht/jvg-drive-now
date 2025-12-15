@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroCar from "@/assets/hero-premium-fleet.jpg";
+import heroCar from "@/assets/hero-car.jpg";
 
 export const Hero = () => {
   const scrollToVehicles = () => {
