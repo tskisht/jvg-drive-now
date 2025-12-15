@@ -12,6 +12,7 @@ interface VehicleCardProps {
   fuel: string;
   pricePerDay: number;
   weekendPrice?: number;
+  weekendFreeKm?: string;
   freeKm?: string;
   extraKmPrice?: string;
   onInquire: () => void;
@@ -26,6 +27,7 @@ export const VehicleCard = ({
   fuel,
   pricePerDay,
   weekendPrice,
+  weekendFreeKm,
   freeKm,
   extraKmPrice,
   onInquire,
@@ -69,22 +71,25 @@ export const VehicleCard = ({
             </div>
           </div>
 
-          {/* Weekend & Kilometer Conditions */}
-          {(weekendPrice || freeKm) && (
+          {/* Kilometer & Weekend Conditions */}
+          {(freeKm || weekendPrice) && (
             <div className="bg-muted/50 rounded-lg p-3 mb-4 space-y-2">
+              {freeKm && (
+                <div className="flex items-center gap-2 text-sm">
+                  <MapPin className="w-4 h-4 text-gold" />
+                  <span className="text-foreground font-medium">{freeKm}</span>
+                  {extraKmPrice && (
+                    <span className="text-muted-foreground">• {extraKmPrice} Mehrkilometer</span>
+                  )}
+                </div>
+              )}
               {weekendPrice && (
                 <div className="flex items-center gap-2 text-sm">
                   <Calendar className="w-4 h-4 text-gold" />
                   <span className="text-muted-foreground">Wochenende (Fr-So):</span>
                   <span className="font-semibold text-foreground">{weekendPrice}€</span>
-                </div>
-              )}
-              {freeKm && (
-                <div className="flex items-center gap-2 text-sm">
-                  <MapPin className="w-4 h-4 text-gold" />
-                  <span className="text-muted-foreground">{freeKm}</span>
-                  {extraKmPrice && (
-                    <span className="text-muted-foreground">• {extraKmPrice} Mehrkilometer</span>
+                  {weekendFreeKm && (
+                    <span className="text-muted-foreground">• {weekendFreeKm}</span>
                   )}
                 </div>
               )}

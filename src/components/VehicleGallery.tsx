@@ -26,6 +26,7 @@ interface Vehicle {
   fuel: string;
   pricePerDay: number;
   weekendPrice?: number;
+  weekendFreeKm?: string;
   freeKm?: string;
   extraKmPrice?: string;
 }
@@ -40,9 +41,7 @@ const vehicles: Vehicle[] = [
     seats: 4,
     fuel: "Elektro",
     pricePerDay: 39,
-    weekendPrice: 99,
-    freeKm: "200km frei",
-    extraKmPrice: "0,29€/km",
+    freeKm: "Unbegrenzt frei",
   },
   {
     id: "2",
@@ -53,9 +52,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 49,
-    weekendPrice: 119,
-    freeKm: "200km frei",
-    extraKmPrice: "0,29€/km",
+    freeKm: "350km/Woche",
+    extraKmPrice: "0,50€/km",
   },
   {
     id: "3",
@@ -66,9 +64,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 39,
-    weekendPrice: 99,
-    freeKm: "200km frei",
-    extraKmPrice: "0,29€/km",
+    freeKm: "350km/Woche",
+    extraKmPrice: "0,30€/km",
   },
   {
     id: "4",
@@ -79,9 +76,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 49,
-    weekendPrice: 119,
-    freeKm: "200km frei",
-    extraKmPrice: "0,29€/km",
+    freeKm: "350km/Woche",
+    extraKmPrice: "0,30€/km",
   },
   {
     id: "5",
@@ -92,9 +88,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 59,
-    weekendPrice: 149,
-    freeKm: "300km frei",
-    extraKmPrice: "0,39€/km",
+    freeKm: "400km/Woche",
+    extraKmPrice: "0,40€/km",
   },
   {
     id: "6",
@@ -105,9 +100,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 59,
-    weekendPrice: 149,
-    freeKm: "300km frei",
-    extraKmPrice: "0,39€/km",
+    freeKm: "500km/Woche",
+    extraKmPrice: "0,30€/km",
   },
   {
     id: "7",
@@ -118,9 +112,8 @@ const vehicles: Vehicle[] = [
     seats: 4,
     fuel: "Benzin",
     pricePerDay: 89,
-    weekendPrice: 219,
-    freeKm: "350km frei",
-    extraKmPrice: "0,69€/km",
+    freeKm: "500km/Woche",
+    extraKmPrice: "0,50€/km",
   },
   {
     id: "8",
@@ -131,9 +124,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 65,
-    weekendPrice: 159,
-    freeKm: "350km frei",
-    extraKmPrice: "0,49€/km",
+    freeKm: "400km/Woche",
+    extraKmPrice: "0,50€/km",
   },
   {
     id: "9",
@@ -144,9 +136,8 @@ const vehicles: Vehicle[] = [
     seats: 5,
     fuel: "Benzin",
     pricePerDay: 119,
-    weekendPrice: 299,
-    freeKm: "400km frei",
-    extraKmPrice: "0,99€/km",
+    freeKm: "150km/Tag",
+    extraKmPrice: "1€/km",
   },
   {
     id: "10",
@@ -157,8 +148,9 @@ const vehicles: Vehicle[] = [
     seats: 4,
     fuel: "Elektro",
     pricePerDay: 159,
+    freeKm: "200km/Tag",
     weekendPrice: 390,
-    freeKm: "450km frei",
+    weekendFreeKm: "450km frei",
     extraKmPrice: "1,49€/km",
   },
   {
@@ -170,8 +162,9 @@ const vehicles: Vehicle[] = [
     seats: 3,
     fuel: "Diesel",
     pricePerDay: 99,
+    freeKm: "200km/Tag",
     weekendPrice: 250,
-    freeKm: "500km frei",
+    weekendFreeKm: "500km frei",
     extraKmPrice: "1€/km",
   },
 ];
