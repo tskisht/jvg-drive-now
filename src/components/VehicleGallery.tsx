@@ -10,7 +10,7 @@ import fiatPanda from "@/assets/vehicles/fiat-panda.jpg";
 import seatIbiza from "@/assets/vehicles/seat-ibiza.jpg";
 import fordFocus from "@/assets/vehicles/ford-focus.jpg";
 import seatArona from "@/assets/vehicles/seat-arona.png";
-import bmw2er from "@/assets/vehicles/bmw-2er.jpg";
+import bmw2erGC from "@/assets/vehicles/bmw-2er-gc.jpg";
 import skodaKaroq from "@/assets/vehicles/skoda-karoq.jpg";
 import alfaStelvio from "@/assets/vehicles/alfa-stelvio.jpg";
 import porscheTaycan from "@/assets/vehicles/porsche-taycan.jpg";
@@ -90,11 +90,11 @@ const vehicles: Vehicle[] = [
   },
   {
     id: "7",
-    name: "BMW 2er Coupe",
-    image: bmw2er,
+    name: "BMW 2er Gran Coupé",
+    image: bmw2erGC,
     category: "Mittelklasse",
     transmission: "Automatik",
-    seats: 4,
+    seats: 5,
     fuel: "Benzin",
     pricePerDay: 89,
   },
@@ -173,6 +173,9 @@ export const VehicleGallery = ({ onVehicleSelect }: VehicleGalleryProps) => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Wählen Sie aus unserer vielfältigen Auswahl an Premium-Fahrzeugen
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            * Fahrzeugfarben können vom Bild abweichen
           </p>
         </motion.div>
 
