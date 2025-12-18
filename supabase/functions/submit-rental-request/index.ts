@@ -3,6 +3,7 @@ import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 const ALLOWED_ORIGINS = [
   "https://www.jvg-premium.de",
   "https://jvg-premium.de",
+  "https://rental.jvg-premium.de",
   "http://localhost:8080",
   "http://localhost:5173",
   "http://localhost:3000",
