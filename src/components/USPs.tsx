@@ -4,8 +4,8 @@ import { MapPin, Clock, CreditCard, Star } from "lucide-react";
 const usps = [
   {
     icon: MapPin,
-    title: "Lokale Nähe",
-    description: "Direkt in Bad Vilbel. Kein langes Suchen, einfach abholen.",
+    title: "Zwei Standorte",
+    description: "In Bad Vilbel und Wehrheim. Kein langes Suchen, einfach abholen.",
   },
   {
     icon: Clock,
