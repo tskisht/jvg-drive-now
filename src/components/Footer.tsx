@@ -24,17 +24,25 @@ export const Footer = () => {
             </p>
           </motion.div>
 
-          {/* Kontakt */}
+          {/* Standorte */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Kontakt</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <p>Johann-Gutenberg-Straße 9</p>
-              <p>61273 Wehrheim</p>
+            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Standorte</h4>
+            <div className="space-y-4 text-muted-foreground">
+              <div>
+                <p className="font-semibold text-foreground">Bad Vilbel</p>
+                <p className="text-sm">Homburger Straße 70</p>
+                <p className="text-sm">61118 Bad Vilbel</p>
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">Wehrheim</p>
+                <p className="text-sm">Johann-Gutenberg-Straße 9</p>
+                <p className="text-sm">61273 Wehrheim</p>
+              </div>
               <p>
                 <a href="tel:+4960819569000" className="hover:text-gold transition-colors">
                   +49 6081 956 9000

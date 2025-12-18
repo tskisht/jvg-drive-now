@@ -18,7 +18,7 @@ const steps = [
     number: "03",
     icon: Car,
     title: "Losfahren",
-    description: "Holen Sie Ihr Fahrzeug bei uns in Bad Vilbel ab und genießen Sie die Fahrt.",
+    description: "Holen Sie Ihr Fahrzeug in Bad Vilbel (Homburger Str. 70) oder Wehrheim (Johann-Gutenberg-Str. 9) ab.",
   },
 ];
 
