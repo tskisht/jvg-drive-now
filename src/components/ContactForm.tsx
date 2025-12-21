@@ -97,14 +97,27 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
         return;
       }
 
+      // Google Ads Conversion Tracking
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+          'value': 1.0,
+          'currency': 'EUR'
+        });
+      }
+
       toast.success(
         "🎉 Vielen Dank für Ihre Anfrage! Wir melden uns innerhalb von 30 Minuten bei Ihnen.",
         {
-          duration: 8000,
+          duration: 12000,
           style: {
             background: 'hsl(var(--card))',
-            border: '2px solid hsl(var(--gold))',
+            border: '3px solid hsl(var(--gold))',
             color: 'hsl(var(--foreground))',
+            fontSize: '1.1rem',
+            padding: '1.25rem 1.5rem',
+            fontWeight: '600',
+            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
           },
         }
       );
