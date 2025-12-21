@@ -55,7 +55,7 @@ export const VehicleCard = ({
         <div className="p-6">
           <h3 className="font-heading text-2xl font-semibold mb-4 text-foreground">{name}</h3>
           
-          <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="grid grid-cols-3 gap-3 mb-4">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Settings className="w-4 h-4" />
               <span className="text-sm">{transmission}</span>
@@ -67,10 +67,6 @@ export const VehicleCard = ({
             <div className="flex items-center gap-2 text-muted-foreground">
               <Zap className="w-4 h-4" />
               <span className="text-sm">{fuel}</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Car className="w-4 h-4" />
-              <span className="text-sm">200km/Tag</span>
             </div>
           </div>
 
