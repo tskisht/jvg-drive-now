@@ -221,7 +221,11 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                         selected={startDate}
                         onSelect={setStartDate}
                         initialFocus
-                        disabled={(date) => date < new Date()}
+                        disabled={(date) => {
+                          const today = new Date();
+                          today.setHours(0, 0, 0, 0);
+                          return date < today;
+                        }}
                         className="pointer-events-auto"
                       />
                     </PopoverContent>
@@ -262,7 +266,12 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
                       selected={endDate}
                       onSelect={setEndDate}
                       initialFocus
-                      disabled={(date) => date < (startDate || new Date())}
+                      disabled={(date) => {
+                        const minDate = startDate || new Date();
+                        const compareDate = new Date(minDate);
+                        compareDate.setHours(0, 0, 0, 0);
+                        return date < compareDate;
+                      }}
                       className="pointer-events-auto"
                     />
                   </PopoverContent>

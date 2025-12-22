@@ -88,21 +88,35 @@ export const Location = () => {
           className="max-w-2xl mx-auto"
         >
           <div className="bg-card rounded-2xl p-8 shadow-card-premium">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary-foreground" />
+            <div className="space-y-6">
+              <h3 className="font-heading text-xl font-semibold text-foreground flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-primary-foreground" />
                 </div>
+                Rufen Sie uns an:
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">Telefon</h3>
+                  <p className="text-muted-foreground mb-1">Standort Wehrheim</p>
                   <a
                     href="tel:+4960819569000"
-                    className="text-gold hover:text-gold-light transition-colors text-lg font-semibold"
+                    className="text-gold hover:text-gold-light transition-colors text-xl font-bold"
                   >
-                    +49 6081 956 9000
+                    06081 956 900 0
+                  </a>
+                </div>
+                <div>
+                  <p className="text-muted-foreground mb-1">Standort Bad Vilbel</p>
+                  <a
+                    href="tel:+4961015063010"
+                    className="text-gold hover:text-gold-light transition-colors text-xl font-bold"
+                  >
+                    06101 506 301 0
                   </a>
                 </div>
               </div>
+            </div>
+            <div className="border-t border-border pt-6 mt-6">
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center flex-shrink-0">
