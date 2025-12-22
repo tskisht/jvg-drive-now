@@ -18,7 +18,7 @@ const steps = [
     number: "03",
     icon: Car,
     title: "Losfahren",
-    description: "Holen Sie Ihr Fahrzeug in Bad Vilbel (Homburger Str. 70) oder Wehrheim (Johann-Gutenberg-Str. 9) ab.",
+    description: "Holen Sie Ihr Fahrzeug in Bad Vilbel (Homburger Str. 69) oder Wehrheim (Johann-Gutenberg-Str. 9) ab.",
   },
 ];
 
@@ -34,12 +34,9 @@ export const Process = () => {
           className="text-center mb-16"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            In 3 Schritten zu{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-gold">Ihrem Mietwagen</span>
+            In 3 Schritten zu <span className="text-transparent bg-clip-text bg-gradient-gold">Ihrem Mietwagen</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            So einfach ist der Prozess bei JVG GmbH
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">So einfach ist der Prozess bei JVG GmbH</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -68,12 +65,8 @@ export const Process = () => {
                       </span>
                     </div>
                   </div>
-                  <h3 className="font-heading text-2xl font-semibold mb-3 text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
+                  <h3 className="font-heading text-2xl font-semibold mb-3 text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             );
