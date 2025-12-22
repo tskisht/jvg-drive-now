@@ -37,6 +37,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
   const [startDate, setStartDate] = useState<Date>();
   const [startTime, setStartTime] = useState("09:00");
   const [endDate, setEndDate] = useState<Date>();
+  const [endTime, setEndTime] = useState("18:00");
   const [vehicle, setVehicle] = useState(selectedVehicle || "");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -80,6 +81,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
           startDate: format(startDate, "yyyy-MM-dd"),
           startTime,
           endDate: format(endDate, "yyyy-MM-dd"),
+          endTime,
           firstName: formData.get("firstName"),
           lastName: formData.get("lastName"),
           email: formData.get("email"),
@@ -127,6 +129,7 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
       setStartDate(undefined);
       setStartTime("09:00");
       setEndDate(undefined);
+      setEndTime("18:00");
       setVehicle("");
       setPrivacyAccepted(false);
       setHoneypot("");
@@ -247,35 +250,49 @@ export const ContactForm = ({ selectedVehicle }: ContactFormProps) => {
 
               <div className="space-y-2">
                 <Label>Mietende *</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal bg-background border-border",
-                        !endDate && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {endDate ? format(endDate, "PPP", { locale: de }) : "Datum wählen"}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={endDate}
-                      onSelect={setEndDate}
-                      initialFocus
-                      disabled={(date) => {
-                        const minDate = startDate || new Date();
-                        const compareDate = new Date(minDate);
-                        compareDate.setHours(0, 0, 0, 0);
-                        return date < compareDate;
-                      }}
-                      className="pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
+                <div className="flex gap-2">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "flex-1 justify-start text-left font-normal bg-background border-border",
+                          !endDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {endDate ? format(endDate, "PPP", { locale: de }) : "Datum wählen"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={endDate}
+                        onSelect={setEndDate}
+                        initialFocus
+                        disabled={(date) => {
+                          const minDate = startDate || new Date();
+                          const compareDate = new Date(minDate);
+                          compareDate.setHours(0, 0, 0, 0);
+                          return date < compareDate;
+                        }}
+                        className="pointer-events-auto"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <Select value={endTime} onValueChange={setEndTime}>
+                    <SelectTrigger className="w-24 bg-background border-border">
+                      <SelectValue placeholder="Uhrzeit" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"].map((time) => (
+                        <SelectItem key={time} value={time}>
+                          {time}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
             </div>
 
