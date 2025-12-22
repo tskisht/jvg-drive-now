@@ -30,6 +30,7 @@ interface RentalRequestData {
   startDate: string;
   startTime: string;
   endDate: string;
+  endTime: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -155,6 +156,7 @@ const handler = async (req: Request): Promise<Response> => {
       "Mietbeginn": data.startDate,
       "Mietbeginn Uhrzeit": data.startTime,
       "Mietende": data.endDate,
+      "Mietende Uhrzeit": data.endTime,
       "Vorname": data.firstName,
       "Nachname": data.lastName,
       "E-Mail Adresse": data.email,
