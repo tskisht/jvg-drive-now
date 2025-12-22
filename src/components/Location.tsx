@@ -4,13 +4,15 @@ import { MapPin, Phone, Clock } from "lucide-react";
 const locations = [
   {
     name: "Bad Vilbel",
-    address: ["JVG GmbH", "Homburger Straße 70", "61118 Bad Vilbel"],
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2556.5!2d8.7333!3d50.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0db0e1234567%3A0x0!2sHomburger%20Stra%C3%9Fe%2070%2C%2061118%20Bad%20Vilbel!5e0!3m2!1sde!2sde!4v1234567890",
+    address: ["JVG GmbH", "Homburger Straße 69", "61118 Bad Vilbel"],
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2556.5!2d8.7333!3d50.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0db0e1234567%3A0x0!2sHomburger%20Stra%C3%9Fe%2070%2C%2061118%20Bad%20Vilbel!5e0!3m2!1sde!2sde!4v1234567890",
   },
   {
     name: "Wehrheim",
     address: ["JVG GmbH", "Johann-Gutenberg-Straße 9", "61273 Wehrheim"],
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2553.8!2d8.5833!3d50.3333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0f4e3e0d0001%3A0x0!2sJohann-Gutenberg-Stra%C3%9Fe%209%2C%2061273%20Wehrheim!5e0!3m2!1sde!2sde!4v1234567890",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2553.8!2d8.5833!3d50.3333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0f4e3e0d0001%3A0x0!2sJohann-Gutenberg-Stra%C3%9Fe%209%2C%2061273%20Wehrheim!5e0!3m2!1sde!2sde!4v1234567890",
   },
 ];
 
@@ -26,8 +28,7 @@ export const Location = () => {
           className="text-center mb-16"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Unsere{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-gold">Standorte</span>
+            Unsere <span className="text-transparent bg-clip-text bg-gradient-gold">Standorte</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Holen Sie Ihr Fahrzeug in Bad Vilbel oder Wehrheim ab
@@ -94,8 +95,8 @@ export const Location = () => {
                 </div>
                 <div>
                   <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">Telefon</h3>
-                  <a 
-                    href="tel:+4960819569000" 
+                  <a
+                    href="tel:+4960819569000"
                     className="text-gold hover:text-gold-light transition-colors text-lg font-semibold"
                   >
                     +49 6081 956 9000
