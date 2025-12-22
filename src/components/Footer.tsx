@@ -19,9 +19,7 @@ export const Footer = () => {
               </div>
               <span className="font-heading text-xl font-bold text-foreground">JVG GmbH</span>
             </div>
-            <p className="text-muted-foreground">
-              Günstige Mietwagen im Raum Frankfurt
-            </p>
+            <p className="text-muted-foreground">Günstige Mietwagen im Raum Frankfurt</p>
           </motion.div>
 
           {/* Standorte */}
@@ -35,7 +33,7 @@ export const Footer = () => {
             <div className="space-y-4 text-muted-foreground">
               <div>
                 <p className="font-semibold text-foreground">Bad Vilbel</p>
-                <p className="text-sm">Homburger Straße 70</p>
+                <p className="text-sm">Homburger Straße 69</p>
                 <p className="text-sm">61118 Bad Vilbel</p>
               </div>
               <div>
@@ -61,13 +59,28 @@ export const Footer = () => {
           >
             <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Rechtliches</h4>
             <div className="space-y-2">
-              <a href="https://www.jvg-premium.de/impressum/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a
+                href="https://www.jvg-premium.de/impressum/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted-foreground hover:text-gold transition-colors"
+              >
                 Impressum
               </a>
-              <a href="https://www.jvg-premium.de/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a
+                href="https://www.jvg-premium.de/datenschutzerklaerung/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted-foreground hover:text-gold transition-colors"
+              >
                 Datenschutz
               </a>
-              <a href="https://www.jvg-premium.de/agb/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-gold transition-colors">
+              <a
+                href="https://www.jvg-premium.de/agb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted-foreground hover:text-gold transition-colors"
+              >
                 AGB
               </a>
             </div>
