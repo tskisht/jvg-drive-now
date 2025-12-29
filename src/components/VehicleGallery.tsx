@@ -208,6 +208,9 @@ export const VehicleGallery = ({ onVehicleSelect }: VehicleGalleryProps) => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Wählen Sie aus unserer vielfältigen Auswahl an Premium-Fahrzeugen
           </p>
+          <p className="text-sm text-muted-foreground mt-3">
+            Ab 5 Tagen verringert sich der angegebene Tagespreis. Sprechen Sie uns gerne an
+          </p>
         </motion.div>
 
         {/* Category Filter */}
