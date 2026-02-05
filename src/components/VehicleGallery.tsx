@@ -104,7 +104,7 @@ const vehicles: Vehicle[] = [
   },
   {
     id: "7",
-    name: "BMW 2er Grand Coupé",
+    name: "BMW 2er Gran Coupé",
     image: bmw2er,
     category: "Mittelklasse",
     transmission: "Automatik",
