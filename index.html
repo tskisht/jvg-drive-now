@@ -1,31 +1,45 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17761373589"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17761373589');
+    </script>
+
+    <!-- Event snippet for Rental Lead Form Send conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17761373589/2W8dCLLHkdUbEJWbpJVC',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Premium Mietwagen Bad Vilbel | JVG Premium Autovermietung</title>
     <meta name="description" content="Mieten Sie Premium Fahrzeuge in Bad Vilbel. Flexible Mietdauer, einfache Zahlung ohne Kreditkarte. Vom Kleinwagen bis zum Luxus-Sportwagen." />
     <meta name="author" content="JVG Premium" />
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <meta property="og:title" content="Premium Mietwagen Bad Vilbel | JVG Premium" />
     <meta property="og:description" content="Mieten Sie Premium Fahrzeuge in Bad Vilbel. Flexible Mietdauer ohne Kreditkarte." />
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Premium Mietwagen Bad Vilbel" />
 
-    <!-- Google Ads Conversion Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-CONVERSION_ID');
-    </script>
+    <script id="usercentrics-cmp" async data-eu-mode="true" data-settings-id="KPQ95F-hDbZYP3" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
   </head>
 
   <body>
